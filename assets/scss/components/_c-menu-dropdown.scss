@@ -1,0 +1,67 @@
+/* ========================================================================================= */
+/* COMPONENT - C MENU DROPDOWN */
+/* ========================================================================================= */
+
+.c-menu-dropdown{
+    transition: transform 1.2s cubic-bezier(.19,.77,.22,1);
+    transform: translateX( -101% );
+    position: fixed;
+    top: 0px;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: $black_modal;
+    height: 100vh;
+    display: flex;
+    -webkit-transition: transform 1.2s cubic-bezier(.19,.77,.22,1);
+    -moz-transition: transform 1.2s cubic-bezier(.19,.77,.22,1);
+    -ms-transition: transform 1.2s cubic-bezier(.19,.77,.22,1);
+    -o-transition: transform 1.2s cubic-bezier(.19,.77,.22,1);
+    -webkit-transform: translateX( -101% );
+    -moz-transform: translateX( -101% );
+    -ms-transform: translateX( -101% );
+    -o-transform: translateX( -101% );
+    
+    &.is-active{
+        transform: translateX( 0% );
+        -webkit-transform: translateX( 0% );
+        -moz-transform: translateX( 0% );
+        -ms-transform: translateX( 0% );
+        -o-transform: translateX( 0% );
+    }
+
+    &__nav{
+
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+
+    }
+
+    &__menu-item-link{
+        padding: 2rem;
+        width: inherit;
+        font-size: 1.5rem;
+        color: $yellow_modal;
+        transition: transform 0.5s ease, color 0.5s ease, border-top 1.2s ease, border-bottom 1.2s ease;
+        -webkit-transition: transform 0.5s ease, color 0.5s ease, border-top 1.2s ease, border-bottom 1.2s ease;
+        -moz-transition: transform 0.5s ease, color 0.5s ease, border-top 1.2s ease, border-bottom 1.2s ease;
+        -ms-transition: transform 0.5s ease, color 0.5s ease, border-top 1.2s ease, border-bottom 1.2s ease;
+        -o-transition: transform 0.5s ease, color 0.5s ease, border-top 1.2s ease, border-bottom 1.2s ease;
+        &:hover{
+            transform: scale(1.5);
+            color: $yellow_modal;
+            -webkit-transform: scale(1.5);
+            -moz-transform: scale(1.5);
+            -ms-transform: scale(1.5);
+            -o-transform: scale(1.5);
+        }
+    }
+}
+
+/* ========================================================================================= */
+/* END COMPONENT - C MENU DROPDOWN */
+/* ========================================================================================= */

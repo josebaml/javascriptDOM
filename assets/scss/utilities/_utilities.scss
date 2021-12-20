@@ -1,0 +1,45 @@
+.u-none{
+
+    display: none!important;
+
+    &\@md{
+        @include only-md{
+            display: none!important;
+        }
+    }
+
+    &\@sm{
+        @include only-sm{
+            display: none!important;
+        }
+    }
+
+    &\@xs{
+        @include only-xs{
+            display: none!important;
+        }
+    }
+    
+}
+
+@media print {
+
+    .u-none\@print{
+
+        display: none!important;
+
+    }
+
+}
+
+.text-center{
+	text-align: center !important;
+}
+
+.text-right{
+	text-align: right !important;
+}
+
+.text-left{
+	text-align: left !important;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="Joseba Moreno">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets\css\main.css">
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- C HEADER -->
+    <header class="c-header js-header">
+      <div class="c-header__wrapper">
+          <div class="c-header__title"> Ejercicios DOM </div>
+      </div>
+    </header>
+
+    <!-- C MENU DROPDOWN -->
+    <div class="c-menu-dropdown js-menu-dropdown">
+      <nav class="c-menu-dropdown__nav js-menu-dropdown-nav" role="navigation">
+        <a class="c-menu-dropdown__menu-item-link" href="#watch-alarm">Reloj y Alarma</a>
+        <a class="c-menu-dropdown__menu-item-link" href="#key-event">Eventos de teclado</a>
+        <a class="c-menu-dropdown__menu-item-link" href="#countdown">Seccion 3</a>
+        <a class="c-menu-dropdown__menu-item-link" href="#Seccion4">Seccion 4</a>
+        <a class="c-menu-dropdown__menu-item-link" href="#Seccion5">Seccion 5</a>
+      </nav>
+    </div>
+  
+    <!-- C HAMBURGUER -->
+    <div class="c-hamburguer js-toggle-menu-dropdown">
+        <div class="c-hamburguer__wrapper">
+            <div class="c-hamburguer__icon"></div>
+        </div>
+    </div>
+    <main>
+      <!-- C SECTION -->
+      <section class="c-watch-alarm" id="watch-alarm">
+        <h2 class="c-watch-alarm__title">Reloj y Alarma</h2>
+        <div class="c-watch-alarm__wrapper">
+            <input class="c-watch-alarm__screen js-watch-alarm-screen" value=""/>
+            <div class="c-watch-alarm__button">
+              <div class="c-watch-alarm__button-watch">
+                <button class="c-button js-start-watch" type="button">Iniciar Reloj</button>
+                <button class="c-button js-stop-watch" type="button">Detener Reloj</button>
+              </div>
+              <div class="c-watch-alarm__button-alarm">
+                <button class="c-button js-start-alarm" type="button">Iniciar Alarma</button>
+                <button class="c-button js-stop-alarm" type="button">Detener Alarma</button>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- C SECTION -->
+      <section class="c-key-event" id="key-event">
+        <h2 class="c-key-event__title">Eventos de teclado</h2>
+        <article class="c-key-event__stage">
+          <div class="c-key-event__ball"></div>
+        </article>
+      </section>
+
+      <!-- C SECTION -->
+      <section class="c-countdown" id="countdown">
+        <h2 class="c-countdown__title">Countdown</h2>
+        <form name="form" method="post" action="#" class="c-countdown__formulario">
+            <!-- Campo de entrada de fecha -->
+            <label for="date" class="c-countdown__date">
+              <span class="c-countdown__date-text">Selecciona fecha:</span> 
+              <input type="date" name="date" id="date" class="c-countdown__date-input js-countdown-date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+            </label>
+            
+            <!-- Campo de entrada de hora -->
+            <label for="time" class="c-countdown__time"> 
+              <span class="c-countdown__time-text">Selecciona hora:</span> 
+              <input type="time" name="time" id="time" class="c-countdown__time-input js-countdown-time" required/>
+            </label>
+            
+          <button class="c-button js-countdown-button">Enviar</button>
+        </form>
+      </section>
+
+      <!-- C SECTION -->
+      <!--
+      <section class="c-section" id="Seccion4">
+        <h2 class="c-section__title">Sección 4</h2>
+      </section>
+      -->
+      <!-- C SECTION -->
+      <!--
+      <section class="c-section" id="Seccion5">
+        <h2 class="c-section__title">Sección 5</h2>
+      </section>
+      -->
+    </main>
+    <script src="assets/js/main.js" async defer></script>
+  </body>
+</html>

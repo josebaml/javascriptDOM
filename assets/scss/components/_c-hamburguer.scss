@@ -1,0 +1,102 @@
+/* ========================================================================================= */
+/* COMPONENT - C HAMBURGUER */
+/* ========================================================================================= */
+.c-hamburguer{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: $yellow;
+    cursor: pointer;
+    position: fixed;
+    right: 2vw;
+    bottom: 2vh;
+    z-index: 1;
+
+    &__wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &__icon{
+        $icon__width : 40px;
+        $icon__height : 40px;
+        $icon__bar_width : 3px;
+        $icon__bar_border_radius : 25px;
+        $icon__bar_color : $black;
+        $icon__distance_bars : 8px;
+    
+        width: $icon__width;
+        height: $icon__height;
+
+        transition: all 0.2s ease-in-out;
+        width: $icon__width;
+        background-color: $icon__bar_color;
+        height: $icon__bar_width;
+        border-radius: $icon__bar_border_radius;
+        position: relative;
+        display: block;
+
+        .is-active &{
+
+            background-color: transparent;
+            
+        }
+
+        &::before,
+        &::after{
+
+            content: "";
+            position: absolute;
+            left: 0px;
+            width: $icon__width;
+            height: $icon__bar_width;
+            border-radius: $icon__bar_border_radius;
+            background-color: $icon__bar_color;
+            transition: all 0.2s ease-in-out;
+            transform: rotate(0deg);
+            transform-origin: center;
+
+        }
+
+        &::before{
+
+            top: -($icon__distance_bars);
+            opacity: 1;
+            visibility: visible;
+
+            .is-active &{
+
+                top: 0px;
+                transform: rotate(45deg);
+                background-color: $black;
+
+            }
+
+        }
+
+        &::after{
+
+            top: $icon__distance_bars;
+            opacity: 1;
+            visibility: visible;
+
+            .is-active &{
+
+                top: 0px;
+                transform: rotate(-45deg);
+                background-color: $black;
+
+            }
+
+        }
+    }
+}
+/* ========================================================================================= */
+/* END COMPONENT - C HAMBURGUER */
+/* ========================================================================================= */

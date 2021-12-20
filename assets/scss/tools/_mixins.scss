@@ -1,0 +1,400 @@
+/* ========================================================================================= */
+/* TOOLS - MIXINS */
+/* ========================================================================================= */
+
+@mixin sm() {
+	@media (min-width: 501px) {
+		@content;
+	}
+}
+
+@mixin md() {
+	@media (min-width: 1101px) {
+		@content;
+	}
+}
+
+// RANGE
+@mixin only-xs() {
+	@media (min-width: 0px) and (max-width: 500px) {
+		@content;
+	}
+}
+@mixin only-sm() {
+	@media (min-width: 501px) and (max-width: 1100px) {
+		@content;
+	}
+}
+@mixin only-md() {
+	@media (min-width: 1101px) {
+		@content;
+	}
+}
+	
+
+/*
+* Fácil de usar: las variables a usar están en settings.scss y son:
+
+    'small'  : 48em,
+    'medium' : 56.25em,
+    'large'  : 68.75em,
+
+* Y el uso va como sigue:
+
+.foo {
+  color: red;
+  @include respond-to('small') {
+    color: blue;
+  }
+}
+*/
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+    
+
+/**
+* Centrar y dar un ancho máximo igual a $pagemaxwidth.
+*/
+@mixin max-width($max-width : $pagemaxwidth)  {
+	margin-left:auto;
+	margin-right:auto;
+	max-width: $max-width;
+	width:100%;
+}
+
+
+// gradients
+@mixin horizontal($startColor : $color-white, $endColor : $color-lightergrey) {
+	background-color: $endColor;
+	background-image  : -webkit-gradient(linear, 0 0, 100% 0, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+	background-image  : -webkit-linear-gradient(left, $startColor, $endColor);                   // Safari 5.1+, Chrome 10+
+	background-image  : -moz-linear-gradient(left, $startColor, $endColor);                      // FF 3.6+
+	background-image  : -ms-linear-gradient(left, $startColor, $endColor);                       // IE10
+	background-image  : -o-linear-gradient(left, $startColor, $endColor);                        // Opera 11.10
+	background-image  : linear-gradient(left, $startColor, $endColor);                           // W3C
+	background-repeat : repeat-x;
+}
+
+@mixin vertical($startColor : $color-white, $endColor:  $color-lightergrey) {
+	background-image  : -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+	background-image  : -webkit-linear-gradient(top, $startColor, $endColor);                    // Safari 5.1+, Chrome 10+
+	background-color  : $endColor;
+	background-image  : -moz-linear-gradient(top, $startColor, $endColor);                       // FF 3.6+
+	background-image  : -ms-linear-gradient(top, $startColor, $endColor);                        // IE10
+	background-image  : -o-linear-gradient(top, $startColor, $endColor);                         // Opera 11.10
+	background-image  : linear-gradient(top, $startColor, $endColor);                            // W3C
+	background-repeat : repeat-x;
+}
+
+@mixin directional($startColor : $color-white, $endColor : $color-lightergrey, $deg : 45deg) {
+	background-color  : $endColor;
+	background-image  : -moz-linear-gradient($deg, $startColor, $endColor);                     // FF 3.6+
+	background-image  : -ms-linear-gradient($deg, $startColor, $endColor);                      // IE10
+	background-image  : -webkit-linear-gradient($deg, $startColor, $endColor);                  // Safari 5.1+, Chrome 10+
+	background-image  : -o-linear-gradient($deg, $startColor, $endColor);                       // Opera 11.10
+	background-image  : linear-gradient($deg, $startColor, $endColor);                          // W3C
+	background-repeat : repeat-x;
+}
+
+// .bordered(COLOR, COLOR, COLOR, COLOR);
+@mixin bordered($top-color: #eee, $right-color: #eee, $bottom-color: #eee, $left-color: #eee) {
+	border-top : solid 1px $top-color;
+	border-left : solid 1px $left-color;
+	border-right : solid 1px $right-color;
+	border-bottom : solid 1px $bottom-color;
+}
+
+// .border-radius(VALUE,VALUE,VALUE,VALUE);
+@mixin border-radius($topright: 0, $bottomright: 0, $bottomleft: 0, $topleft: 0) {
+	-webkit-border-top-right-radius : $topright;
+	-webkit-border-bottom-right-radius : $bottomright;
+	-webkit-border-bottom-left-radius : $bottomleft;
+	-webkit-border-top-left-radius : $topleft;
+	-moz-border-radius-topright : $topright;
+	-moz-border-radius-bottomright : $bottomright;
+	-moz-border-radius-bottomleft : $bottomleft;
+	-moz-border-radius-topleft : $topleft;
+	border-top-right-radius : $topright;
+	border-bottom-right-radius : $bottomright;
+	border-bottom-left-radius : $bottomleft;
+	border-top-left-radius : $topleft;
+	-webkit-background-clip : padding-box;
+	-moz-background-clip : padding;
+	background-clip : padding-box;
+}
+
+// .box-shadow(HORIZONTAL VERTICAL BLUR COLOR))
+@mixin box-shadow($shadow: 0 1px 3px rgba(0,0,0,.25)) {
+	-webkit-box-shadow : $shadow;
+	box-shadow : $shadow;
+}
+
+// .drop-shadow(HORIZONTAL, VERTICAL, BLUR, ALPHA);
+@mixin drop-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $alpha: 0.1) {
+	-webkit-box-shadow : $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+	-moz-box-shadow : $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+	box-shadow : $x-axis $y-axis $blur rgba(0, 0, 0, $alpha);
+}
+
+// .opacity(VALUE);
+@mixin opacity($opacity : .5) {
+	-webkit-opacity : $opacity;
+	-moz-opacity : $opacity;
+	opacity : $opacity;
+}
+
+// .rotate(VALUEdeg);
+@mixin rotate($deg) {
+	-webkit-transform : rotate($deg);
+	-moz-transform : rotate($deg);
+	-ms-transform : rotate($deg);
+	-o-transform : rotate($deg);
+	transform : rotate($deg);
+}
+
+// .scale(VALUE);
+@mixin scale($ratio) {
+	-webkit-transform : scale($ratio);
+	-moz-transform : scale($ratio);
+	-ms-transform : scale($ratio);
+	-o-transform : scale($ratio);
+	transform : scale($ratio);
+}
+
+// .skew(VALUE, VALUE);
+@mixin skew($x: 0, $y: 0) {
+	-webkit-transform : skew($x, $y);
+	-moz-transform : skew($x, $y);
+	-ms-transform : skew($x, $y);
+	-o-transform : skew($x, $y);
+	transform : skew($x, $y);
+}
+
+// .transition(PROPERTY DURATION DELAY(OPTIONAL) TIMING-FINCTION);
+@mixin transition($transition) {
+	-webkit-transition : $transition;
+	-moz-transition : $transition;
+	-ms-transition : $transition;
+	-o-transition : $transition;
+	transition : $transition;
+}
+
+// .translate(VALUE, VALUE)
+@mixin translate($x: 0, $y: 0) {
+	-webkit-transform : translate($x, $y);
+	-moz-transform : translate($x, $y);
+	-ms-transform : translate($x, $y);
+	-o-transform : translate($x, $y);
+	transform : translate($x, $y);
+}
+
+@mixin translate3d($x: 0, $y: 0, $z: 0) {
+	-webkit-transform : translate3d($x, $y, $z);
+	-moz-transform : translate3d($x, $y, $z);
+	-ms-transform : translate3d($x, $y, $z);
+	-o-transform : translate3d($x, $y, $z);
+	transform : translate3d($x, $y, $z);
+}
+
+
+// .background-alpha(VALUE VALUE);
+@mixin background-alpha($color: $color-white, $alpha: 1) {
+	background-color : hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+
+// .background-size(VALUE VALUE);
+@mixin background-size($size){
+	-webkit-background-size : $size;
+	-moz-background-size : $size;
+	-o-background-size : $size;
+	background-size : $size;
+}
+
+// .background-clip(VALUE); (border-box, padding-box, content-box)
+@mixin background-clip($clip) {
+	-webkit-background-clip : $clip;
+	-moz-background-clip : $clip;
+	background-clip : $clip;
+}
+
+// .box-sizing(VALUE); (border-box, padding-box, content-box)
+@mixin box-sizing($boxsize: border-box) {
+	-webkit-box-sizing : $boxsize;
+	-moz-box-sizing : $boxsize;
+	-ms-box-sizing : $boxsize;
+	box-sizing : $boxsize;
+}
+
+
+// .resize(VALUE) (none, both, horizontal, vertical, inherit)
+
+@mixin resize($direction: both) {
+	resize : $direction;
+	overflow : auto;
+}
+
+// .userselect(VALUE) (all, element, none, text)
+
+@mixin user-select($select) {
+	-webkit-user-select : $select;
+	-moz-user-select : $select;
+	-o-user-select : $select;
+	user-select : $select;
+}
+
+
+// .columns(250px, 0, 24px, COLOR, solid, 1px)
+
+@mixin columns($colwidth: 250px, $colcount: 0, $colgap: 50px, $columnRuleColor: #eee, $columnRuleStyle: solid, $columnRuleWidth: 1px) {
+	-webkit-column-width : $colwidth;
+	-webkit-column-count : $colcount;
+	-webkit-column-gap : $colgap;
+	-webkit-column-rule-color : $columnRuleColor;
+	-webkit-column-rule-style : $columnRuleStyle;
+	-webkit-column-rule-width : $columnRuleWidth;
+	-moz-column-width : $colwidth;
+	-moz-column-count : $colcount;
+	-moz-column-gap : $colgap;
+	-moz-column-rule-color : $columnRuleColor;
+	-moz-column-rule-style : $columnRuleStyle;
+	-moz-column-rule-width : $columnRuleWidth;
+	column-width : $colwidth;
+	column-count : $colcount;
+	column-gap : $colgap;
+	column-rule-color : $columnRuleColor;
+	column-rule-style : $columnRuleStyle;
+	column-rule-width : $columnRuleWidth;
+}
+
+
+//
+//Creamos prefijos para todo dios
+//
+//   `@include vendor(border-radius, 4px);`
+//
+//
+@mixin vendor($property, $value...){
+    -webkit-#{$property}:$value;
+       -moz-#{$property}:$value;
+        -ms-#{$property}:$value;
+         -o-#{$property}:$value;
+            #{$property}:$value;
+}
+
+// Simple truncation mixin to cut off text using an ellipsis after a certain
+// width.
+//
+// .simple-usage {
+//   @include truncate();
+// }
+//
+// .detailed-usage {
+//   @include truncate(<value>, important);
+// }
+
+@mixin truncate($limit: 100%, $important: false) {
+
+    @if ($important == "important") {
+        $important: unquote("!important");
+    } @else {
+        $important: null;
+    }
+
+    max-width: $limit $important;
+    white-space: nowrap $important;
+    overflow: hidden $important;
+    text-overflow: ellipsis $important;
+}
+
+/*** Mixins para los Media Queries ***/
+
+/*** Media queries variables ***/
+$media-xxs:"(min-width : 320px)"; // iPhone Retina 
+$media-xs: "(min-width : 480px)"; // Telefonos
+$media-sm: "(min-width: 768px)";  // Tablets
+$media-md: "(min-width: 992px)"; // Escritorios
+$media-lg: "(min-width: 1200px)"; // Resoluciones grandes
+$media-xlg: "(min-width: 1400px)"; // Resoluciones extra grandes
+
+@mixin media($consulta) {
+    
+    @if $consulta == xxs {
+      @media #{$media-xxs} { @content; }
+    }
+    @if $consulta == xs {
+      @media #{$media-xs} { @content; }
+    }
+    @else if $consulta == sm {
+      @media #{$media-sm} { @content; }
+    }
+    @else if $consulta == md {
+      @media #{$media-md}  { @content; }
+    }
+    @else if $consulta == lg {
+      @media #{$media-lg}  { @content; }
+    }
+    @else if $consulta == xlg {
+        @media #{$media-xlg}  { @content; }
+      }
+}
+
+/*** Mixin para el posicionamiento ***/
+@mixin abs-position ($top, $right, $bottom, $left) {
+   position: absolute; 
+   top: $top;
+   right: $right;
+   bottom: $bottom;
+   left: $left;
+}
+
+/*** Mixin centrar ***/
+@mixin push--auto {
+    margin: { 
+        left: auto;
+        right: auto;
+    }
+}
+
+/*** Fonts ***/
+@mixin font-source-sans($size: false, $colour: false, $weight: false,  $lh: false) {
+    font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    @if $size { font-size: $size; }
+    @if $colour { color: $colour; }
+    @if $weight { font-weight: $weight; }
+    @if $lh { line-height: $lh; }
+}
+
+/*** Pasar a REM ***/
+@mixin font-size($size, $base: 16) {
+  font-size: $size; // fallback for old browsers
+  font-size: ($size / $base) * 1rem;
+}
+
+/*** Borde ***/
+@mixin border ($color){
+	border: 1px solid $color;
+}
+
+/*** Centrar con flexbox ***/
+
+@mixin center-flex-children($position: false) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@if $position { flex-direction: column; }
+}
+
+/* ========================================================================================= */
+/* END TOOLS - MIXINS */
+/* ========================================================================================= */

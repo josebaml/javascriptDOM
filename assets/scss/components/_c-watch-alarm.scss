@@ -1,0 +1,124 @@
+/* ========================================================================================= */
+/* COMPONENT - C WATCH-ALARM */
+/* ========================================================================================= */
+
+    .c-watch-alarm{
+        border-top: 1px solid $grey;
+        height: 100vh;
+        width: 100%;
+        @include center-flex-children(true);
+        border: 1px solid red;
+        padding-top: 3rem;
+
+        @include respond-to('small') {
+            padding-top: 0;
+        }
+
+        &__title{
+            font-size: 28px;
+            font-weight: bold;
+            padding-bottom: 1rem;
+            text-align: center;
+
+            @include respond-to('small') {
+                padding-top: 0;
+                padding-bottom: 5rem;
+            }
+        }
+
+        &__wrapper{
+            @include center-flex-children(true);
+
+            @include respond-to('small') {
+                width: 100%;
+                max-width: 730px;
+            }
+        }
+
+        &__screen{
+            width: 90%;
+            padding: 1em;
+            line-height: 1.5;
+            font-size: 24px;
+            text-align: center;
+            color: $black;
+            @include border($black);
+            border-radius: 5px;
+            transition: all 0.5s ease-in-out;
+            -webkit-transition: all 0.5s ease-in-out;
+            -moz-transition: all 0.5s ease-in-out;
+            -ms-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            @include respond-to('small') {
+                width: 50%;
+            }
+            /*
+            -webkit-box-shadow: 0px 0px 7px 0px rgba(20,18,20,0.68);
+            -moz-box-shadow: 0px 0px 7px 0px rgba(20,18,20,0.68);
+            box-shadow: 0px 0px 7px 0px rgba(20,18,20,0.68);
+            */
+            &.is-parpadea {
+  
+                animation-name: parpadeo;
+                animation-duration: 1s;
+                animation-timing-function: linear;
+                animation-iteration-count: 8;
+              
+                -webkit-animation-name:parpadeo;
+                -webkit-animation-duration: 1s;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-iteration-count: 8;
+                color: red;
+                @include border(red);
+                
+            }
+        }
+
+        &__button{
+            padding: 1em 0 1em 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            &-watch, &-alarm{
+                width: inherit;
+                padding-top: 1em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                @include respond-to('small') {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding-left: 1em;
+                    padding-right: 1em;
+                }
+            }
+
+        }
+    }
+    
+    // KEYFRAMES
+    @-moz-keyframes parpadeo{  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+      
+    @-webkit-keyframes parpadeo {  
+        0% { opacity: 1.0; }
+        50% { opacity: 0.0; }
+         100% { opacity: 1.0; }
+    }
+      
+    @keyframes parpadeo {  
+        0% { opacity: 1.0; }
+         50% { opacity: 0.0; }
+        100% { opacity: 1.0; }
+    }
+/* ========================================================================================= */
+/* END COMPONENT - C WATCH-ALARM */
+/* ========================================================================================= */
