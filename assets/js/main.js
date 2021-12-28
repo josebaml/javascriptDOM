@@ -167,19 +167,50 @@
 
     const countdown_button =  document.querySelector('.js-countdown-button')
 
+    const countdown_form =  document.querySelector('.js-countdown__formulario');
+
+    const countdown =  document.querySelector('.js-countdown');
+
     // Eventos
     countdown_button.addEventListener("click", function(e){
+
         e.preventDefault();
         
         let completDate = `${countDate.value} ${countTime.value}`;
-        
-        let dateValue = new Date(completDate);
-        let day = dateValue.getDate();
-        let month = dateValue.getMonth() + 1;
-        let year = dateValue.getFullYear();
-        let hour = dateValue.getHours();
-        let minutes = dateValue.getMinutes();
-        //alert([day, month, year].join('/'));
-        console.log(day, month, year, hour, minutes);
-           
+
+        let dateValue = new Date(completDate).getTime();
+
+        let currentDate = new Date().getTime();
+
+        countdown_form.classList.add("c-countdown__none");
+
+        const countdown_div = document.createElement("div");
+        countdown_div.classList.add("c-countdown__countdown");
+        countdown.appendChild(countdown_div);
+
+        if(currentDate > dateValue){
+            countdown_div.innerHTML = `<h3 class="c-countdown__date-fail">La fecha que has introducido ya ha pasado, lo siento!!!</h3>`;
+        }else{
+
+            let countdown_view = setInterval(() => {
+
+                currentDate = new Date().getTime();
+                let resultado = dateValue - currentDate;
+
+                let days = Math.floor(resultado / (1000 * 60 * 60 * 24));
+                let hours = ("0" + Math.floor(resultado % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))).slice(-2);
+                let minutes = ("0" + Math.floor(resultado % (1000 * 60 * 60) / (1000 * 60))).slice(-2);
+                let seconds = ("0" + Math.floor(resultado % (1000 * 60) / (1000))).slice(-2);
+
+                countdown_div.innerHTML = `<h3>Quedan: ${days} días, ${hours} horas, ${minutes} minutos, 
+                                            ${seconds} segundos para llegar a la hora seleccionada.</h3>`;
+
+                if(resultado < 0){
+                    clearInterval(countdown_view);
+                    countdown_div.innerHTML = `<h3 class="c-countdown__date-ok">La hora seleccionada ha llegado, enhorabuena!!!</h3>`;
+                }
+            }, 1000);
+ 
+        }
+         
     });

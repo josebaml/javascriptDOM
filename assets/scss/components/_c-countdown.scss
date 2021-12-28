@@ -40,6 +40,22 @@
             padding: 1rem 2rem;
             text-align: center;
         }
+
+        &__none{
+            display: none;
+        }
+
+        &__countdown{
+            font-size: 1.3rem;
+        }
+
+        &__date-fail{
+            color:red;   
+        }
+
+        &__date-ok{
+            color: green;
+        }
         
     }
     

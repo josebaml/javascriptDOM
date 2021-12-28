@@ -1105,6 +1105,14 @@ h1, h2, h3, h4, h5, h6 {
   .c-countdown__date-input, .c-countdown__time-input {
     padding: 1rem 2rem;
     text-align: center; }
+  .c-countdown__none {
+    display: none; }
+  .c-countdown__countdown {
+    font-size: 1.3rem; }
+  .c-countdown__date-fail {
+    color: red; }
+  .c-countdown__date-ok {
+    color: green; }
 
 /* ========================================================================================= */
 /* END COMPONENT - C COUNTDOWN */
