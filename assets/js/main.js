@@ -175,42 +175,56 @@
     countdown_button.addEventListener("click", function(e){
 
         e.preventDefault();
-        
-        let completDate = `${countDate.value} ${countTime.value}`;
 
-        let dateValue = new Date(completDate).getTime();
+        if(countDate.value != '' && countTime.value != ''){
 
-        let currentDate = new Date().getTime();
+            let completDate = `${countDate.value} ${countTime.value}`;
 
-        countdown_form.classList.add("c-countdown__none");
+            let dateValue = new Date(completDate).getTime();
 
-        const countdown_div = document.createElement("div");
-        countdown_div.classList.add("c-countdown__countdown");
-        countdown.appendChild(countdown_div);
+            let currentDate = new Date().getTime();
 
-        if(currentDate > dateValue){
-            countdown_div.innerHTML = `<h3 class="c-countdown__date-fail">La fecha que has introducido ya ha pasado, lo siento!!!</h3>`;
+            countdown_form.classList.add("c-countdown__none");
+
+            const countdown_div = document.createElement("div");
+            countdown_div.classList.add("c-countdown__countdown");
+            countdown.appendChild(countdown_div);
+
+            if(currentDate > dateValue){
+                countdown_div.innerHTML = `<h3 class="c-countdown__date-fail">La fecha que has introducido ya ha pasado, lo siento!!!</h3>`;
+            }else{
+
+                let countdown_view = setInterval(() => {
+
+                    currentDate = new Date().getTime();
+                    let resultado = dateValue - currentDate;
+
+                    let days = Math.floor(resultado / (1000 * 60 * 60 * 24));
+                    let hours = ("0" + Math.floor(resultado % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))).slice(-2);
+                    let minutes = ("0" + Math.floor(resultado % (1000 * 60 * 60) / (1000 * 60))).slice(-2);
+                    let seconds = ("0" + Math.floor(resultado % (1000 * 60) / (1000))).slice(-2);
+
+                    countdown_div.innerHTML = `<h3>Quedan: ${days} días, ${hours} horas, ${minutes} minutos, 
+                                                ${seconds} segundos para llegar a la hora seleccionada.</h3>`;
+
+                    if(resultado < 0){
+                        clearInterval(countdown_view);
+                        countdown_div.innerHTML = `<h3 class="c-countdown__date-ok">La hora seleccionada ha llegado, enhorabuena!!!</h3>`;
+                    }
+                }, 1000);
+    
+            }
         }else{
 
-            let countdown_view = setInterval(() => {
+            const empty_fields = document.createElement("div");
+            empty_fields.classList.add("c-countdown__empty-fields");
+            countdown.appendChild(empty_fields);
+            empty_fields.innerHTML = `<p>Los campos de fecha y hora no pueden quedar vacíos</p>`;
 
-                currentDate = new Date().getTime();
-                let resultado = dateValue - currentDate;
+            setTimeout(() =>{
+                empty_fields.remove();
+            }, 5000);
 
-                let days = Math.floor(resultado / (1000 * 60 * 60 * 24));
-                let hours = ("0" + Math.floor(resultado % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))).slice(-2);
-                let minutes = ("0" + Math.floor(resultado % (1000 * 60 * 60) / (1000 * 60))).slice(-2);
-                let seconds = ("0" + Math.floor(resultado % (1000 * 60) / (1000))).slice(-2);
-
-                countdown_div.innerHTML = `<h3>Quedan: ${days} días, ${hours} horas, ${minutes} minutos, 
-                                            ${seconds} segundos para llegar a la hora seleccionada.</h3>`;
-
-                if(resultado < 0){
-                    clearInterval(countdown_view);
-                    countdown_div.innerHTML = `<h3 class="c-countdown__date-ok">La hora seleccionada ha llegado, enhorabuena!!!</h3>`;
-                }
-            }, 1000);
- 
-        }
+        }    
          
     });
