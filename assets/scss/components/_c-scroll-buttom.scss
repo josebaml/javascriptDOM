@@ -1,0 +1,41 @@
+/* ========================================================================================= */
+/* COMPONENT - C SCROLL BUTTOM */
+/* ========================================================================================= */
+
+.c-scroll-buttom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: $yellow;
+    cursor: pointer;
+    position: fixed;
+    right: 8vw;
+    bottom: 2vh;
+    z-index: 1;
+
+    &__wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-size: 2.5rem;
+    }
+
+    &:hover{
+        background-color: $black;
+        color: $yellow;
+    }
+
+    &__hidden{
+        visibility: hidden;
+        @include opacity(0);
+    }
+    
+}
+    
+/* ========================================================================================= */
+/* END COMPONENT - C SCROLL BUTTOM */
+/* ========================================================================================= */

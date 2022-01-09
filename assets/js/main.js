@@ -228,3 +228,25 @@
         }    
          
     });
+
+// Scroll Buttom
+
+    // Variable
+    const scrollButtom = document.querySelector('.js-scroll-buttom');
+
+    // Eventos
+    window.addEventListener("scroll", () =>{
+        let scrollTop = window.pageYOffset;
+        if(scrollTop > 320)
+            scrollButtom.classList.remove("c-scroll-buttom__hidden");
+        else
+            scrollButtom.classList.add("c-scroll-buttom__hidden");
+    });
+
+    scrollButtom.addEventListener("click", () =>{
+        console.log('pulsado');
+        window.scrollTo({
+            behaivor: "smooth",
+            top: 0
+        });
+    });

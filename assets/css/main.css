@@ -934,7 +934,6 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid red;
   padding-top: 3rem; }
   @media (min-width: 42em) {
     .c-watch-alarm {
@@ -1121,6 +1120,40 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ========================================================================================= */
 /* END COMPONENT - C COUNTDOWN */
+/* ========================================================================================= */
+/* ========================================================================================= */
+/* COMPONENT - C SCROLL BUTTOM */
+/* ========================================================================================= */
+.c-scroll-buttom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: #f7df1e;
+  cursor: pointer;
+  position: fixed;
+  right: 8vw;
+  bottom: 2vh;
+  z-index: 1; }
+  .c-scroll-buttom__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 2.5rem; }
+  .c-scroll-buttom:hover {
+    background-color: #222;
+    color: #f7df1e; }
+  .c-scroll-buttom__hidden {
+    visibility: hidden;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    opacity: 0; }
+
+/* ========================================================================================= */
+/* END COMPONENT - C SCROLL BUTTOM */
 /* ========================================================================================= */
 /* ========================================================================================= */
 /* END COMPONENTS */
