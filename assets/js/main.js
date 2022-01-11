@@ -250,3 +250,38 @@
             top: 0
         });
     });
+
+// Dark Theme
+
+    // Variable
+    const darkButtom = document.querySelector('.js-dark-theme');
+    const darkModeAttribute = document.querySelectorAll("[data-dark]");
+
+    const moon = "🌙";
+    const sun = "☀️";
+
+    // Eventos
+    darkButtom.addEventListener("click", () =>{
+
+        if(darkButtom.textContent === moon){
+
+            darkModeAttribute.forEach((element) => {
+                if(element.classList.contains("c-key-event__stage"))
+                    element.classList.add("c-key-event__dark-mode");
+                else
+                    element.classList.add("c-dark-theme__mode");
+            });
+            darkButtom.textContent = sun;
+
+        }else{
+
+            darkModeAttribute.forEach((element) => {
+                if(element.classList.contains("c-key-event__stage"))
+                    element.classList.remove("c-key-event__dark-mode");
+                else
+                    element.classList.remove("c-dark-theme__mode");
+            });
+            darkButtom.textContent = moon;
+        }
+
+    });

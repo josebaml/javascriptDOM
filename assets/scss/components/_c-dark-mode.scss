@@ -2,7 +2,7 @@
 /* COMPONENT - C SCROLL BUTTOM */
 /* ========================================================================================= */
 
-.c-scroll-buttom{
+.c-dark-theme{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,28 +13,19 @@
     background-color: $yellow;
     cursor: pointer;
     position: fixed;
-    right: 8vw;
+    left: 2vw;
     bottom: 2vh;
     z-index: 1;
-
-    &__wrapper{
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        font-size: 2.5rem;
-        color: $black;
+    font-size: 2.5rem;
+    
+    &:hover{
+        background-color: $black;
     }
 
-    &:hover{
+    &__mode{
         background-color: $black;
         color: $yellow;
     }
-
-    &__hidden{
-        visibility: hidden;
-        @include opacity(0);
-    }
-    
 }
     
 /* ========================================================================================= */

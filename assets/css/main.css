@@ -1067,6 +1067,8 @@ h1, h2, h3, h4, h5, h6 {
     height: 4em;
     border-radius: 50%;
     background-color: #f7df1e; }
+  .c-key-event__dark-mode {
+    background-color: #F1F1F1; }
 
 /* ========================================================================================= */
 /* END COMPONENT - C KEY-EVENT */
@@ -1142,7 +1144,8 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    font-size: 2.5rem; }
+    font-size: 2.5rem;
+    color: #222; }
   .c-scroll-buttom:hover {
     background-color: #222;
     color: #f7df1e; }
@@ -1151,6 +1154,33 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-opacity: 0;
     -moz-opacity: 0;
     opacity: 0; }
+
+/* ========================================================================================= */
+/* END COMPONENT - C SCROLL BUTTOM */
+/* ========================================================================================= */
+/* ========================================================================================= */
+/* COMPONENT - C SCROLL BUTTOM */
+/* ========================================================================================= */
+.c-dark-theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: #f7df1e;
+  cursor: pointer;
+  position: fixed;
+  left: 2vw;
+  bottom: 2vh;
+  z-index: 1;
+  font-size: 2.5rem; }
+  .c-dark-theme:hover {
+    background-color: #222; }
+  .c-dark-theme__mode {
+    background-color: #222;
+    color: #f7df1e; }
 
 /* ========================================================================================= */
 /* END COMPONENT - C SCROLL BUTTOM */

@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets\css\main.css">
   </head>
-  <body>
+  <body data-dark>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -45,7 +45,11 @@
     <!-- C SCROLL BUTTOM -->
     <div class="c-scroll-buttom c-scroll-buttom__hidden js-scroll-buttom">
       <div class="c-scroll-buttom__wrapper">&#11014</div>
-  </div>
+    </div>
+
+    <!-- C DARK MODE -->
+    <div class="c-dark-theme js-dark-theme">🌙</div>
+    <!--<div class="c-dark-theme__wrapper js-dark-theme">🌙</div>-->
 
     <main>
       <!-- C SECTION -->
@@ -69,7 +73,7 @@
       <!-- C SECTION -->
       <section class="c-key-event" id="key-event">
         <h2 class="c-key-event__title">Eventos de teclado</h2>
-        <article class="c-key-event__stage">
+        <article class="c-key-event__stage" data-dark>
           <div class="c-key-event__ball"></div>
         </article>
       </section>
