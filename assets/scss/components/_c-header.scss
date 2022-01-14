@@ -11,25 +11,17 @@
     height: auto;
     z-index: 1;
     background-color: $yellow;
-    //transition: all 0.6s ease-in-out;
-    //transform: translateY(0px);
-/*
-    &.has-transform{
 
-        transform: translateY(-101%);
-
-    }
-*/
     &__wrapper{
 
         width: 100%;
         text-align: center;
-        padding: 20px 40px;
+        padding: 1.25rem;
 
     }
 
     &__title{
-        font-size: 32px;
+        font-size: 2rem;
         font-weight: bold;
         color: $black;
     } 
