@@ -301,4 +301,43 @@
 
         if(localStorage.getItem("theme") === "dark") darkMode();
     });
+
+// Responsive Javascript
+
+    // Variable
+    const responsiveYoutube = document.querySelector(".js-responsive-javascript__youtube");
+    const responsiveGmaps = document.querySelector(".js-responsive-javascript__gmaps");
+
+    // Evento
+    document.addEventListener("DOMContentLoaded", () => {
+
+        responsiveMedia(responsiveYoutube, "(min-width:1024px)",
+         `<a href="https://www.youtube.com/watch?v=6IwUl-4pAzc&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=91"
+         target="_blank" rel="noopener">Ver Vídeo</a>`, 
+        `<iframe width="560" height="315" src="https://www.youtube.com/embed/6IwUl-4pAzc" title="YouTube video player" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen></iframe>`);
+        responsiveMedia(responsiveGmaps, "(min-width:1024px)", 
+        `<a href="https://goo.gl/maps/nbq6FH7waVQdGbXu8" target="_blank" rel="noopener">Ver Mapa</a>`, 
+        `<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11610.29264516334!2d-3.0171405!3d43.323194!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa2b49ebec321262!2sPuente%20Vizcaya!5e0!3m2!1ses!2ses!4v1642155981432!5m2!1ses!2ses" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>`);
+
+    });
+    // Funciones
+    function responsiveMedia(responsiveElement, mediaQuery, mobileContent, desktopContent){
+
+        let breakpoint = window.matchMedia(mediaQuery);
+
+        const responsive = (e) =>{
+            if(e.matches){
+                responsiveElement.innerHTML = desktopContent;
+            }else{
+                responsiveElement.innerHTML = mobileContent;
+            }
+
+        }
+
+        breakpoint.addListener(responsive);
+        responsive(breakpoint);
+    }
   
