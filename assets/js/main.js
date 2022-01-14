@@ -340,4 +340,31 @@
         breakpoint.addListener(responsive);
         responsive(breakpoint);
     }
+
+// Responsive Tester
+
+    // Variable
+    const responsiveTesterForm = document.querySelector(".js-responsive-tester__form");
+
+    let tester;
+
+    document.addEventListener("submit", e =>{
+
+        if(e.target === responsiveTesterForm){
+            e.preventDefault();
+
+            tester = window.open(responsiveTesterForm.direction.value, 
+                                "tester", 
+                                `innerWidth=${responsiveTesterForm.ancho.value}`,
+                                `innerWidth=${responsiveTesterForm.alto.value}`
+                                );
+        }
+
+    });
+
+    document.addEventListener("click", (e) =>{
+
+        if(e.target === responsiveTesterForm.cerrar) tester.close();
+
+    });
   
