@@ -367,4 +367,68 @@
         if(e.target === responsiveTesterForm.cerrar) tester.close();
 
     });
-  
+
+// Detection Devices (User Agent)
+
+    // Variable
+    //console.log(navigator.userAgent);
+    const detectionDevices = document.querySelector(".js-detection-devices__content");
+
+    const isMobile = {
+            android: () => navigator.userAgent.match(/android/i),
+            ios: () => navigator.userAgent.match(/iphone|ipad|ipod/i),
+            windows: () => navigator.userAgent.match(/windows phone/i),
+            any: function() {
+                return this.android() || this.ios() || this.windows();
+            }
+        },
+          isDesktop = {
+            linux: () => navigator.userAgent.match(/linux/i),
+            mac: () => navigator.userAgent.match(/macintosh/i),
+            windows: () => navigator.userAgent.match(/windows nt/i),
+            any: function() {
+                return this.linux() || this.mac() || this.windows();
+            }
+        },
+          isBrowser = {
+            chrome: () => navigator.userAgent.match(/chrome/i),
+            safari: () => navigator.userAgent.match(/safari/i),
+            firefox: () => navigator.userAgent.match(/firefox/i),
+            opera: () => navigator.userAgent.match(/opr|opera|opera mini/i),
+            ie: () => navigator.userAgent.match(/msie|iemobile/i),
+            edge: () => navigator.userAgent.match(/edg/i),
+            any: function() {
+                return (
+                    this.ie() ||
+                    this.edge() ||
+                    this.opera() ||
+                    this.chrome() ||
+                    this.safari() ||
+                    this.firefox()
+                );
+            }
+        };
+        console.log(detectionDevices);
+        detectionDevices.innerHTML = `
+        <ul id="ua">
+            <li>User Agent: <b>${navigator.userAgent}</b></li>
+            <li> Plataforma: <b>
+            ${isMobile.any() ? isMobile.any() : isDesktop.any()}
+            </b></li>
+
+            <li> Navegador: <b>
+            ${isBrowser.any()}</b></li>
+        </ul>`;
+    
+        // Generar contenido restringido para navegadores
+        if(isBrowser.chrome()) detectionDevices.innerHTML += "<p><mark>Este contenido sólo es visible en Chrome</mark></p>";
+        if(isBrowser.firefox()) detectionDevices.innerHTML += "<p><mark>Este contenido sólo es visible en Firefox</mark></p>";
+        if(isBrowser.edge()) detectionDevices.innerHTML += "<p><mark>Este contenido sólo es visible en Edge</mark></p>";
+
+        // Generar contenido restringido para SO
+        if(isDesktop.linux()) detectionDevices.innerHTML += "<p><mark>Descarga el software para Linux</mark></p>";
+        if(isDesktop.mac()) detectionDevices.innerHTML += "<p><mark>Descarga el software para Mac</mark></p>";
+        if(isDesktop.windows()) detectionDevices.innerHTML += "<p><mark>Descarga el software para Windows</mark></p>";
+
+        // Redifigir a página web mobile
+        if(isMobile.android()) window.location.href = "https://jonmircha.com";
