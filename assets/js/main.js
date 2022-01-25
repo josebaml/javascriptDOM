@@ -458,3 +458,26 @@
     // Eventos
     window.addEventListener("online", () => { isOnLine()});
     window.addEventListener("offline", () => isOnLine());
+
+
+// Detection Webcam
+
+    // variables
+    const webcam = document.querySelector(".js-detection-webcam__video");
+
+    if(navigator.mediaDevices.getUserMedia){
+        navigator.mediaDevices
+        .getUserMedia({
+            video: true,
+            audio: false,
+        })
+        .then((stream) => {
+            console.log(stream);
+            webcam.srcObject = stream;
+            webcam.play();
+        })
+        .catch((error) => {
+            webcam.insertAdjacentHTML("beforebegin", `<p><mark>Se ha detectado el siguiente error${error}</mark></p>`);
+            console.log(`Se ha detectado el siguiente error ${error}`)
+        })
+    }
