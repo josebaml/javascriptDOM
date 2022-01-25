@@ -371,7 +371,6 @@
 // Detection Devices (User Agent)
 
     // Variable
-    //console.log(navigator.userAgent);
     const detectionDevices = document.querySelector(".js-detection-devices__content");
 
     const isMobile = {
@@ -408,7 +407,7 @@
                 );
             }
         };
-        console.log(detectionDevices);
+
         detectionDevices.innerHTML = `
         <ul id="ua">
             <li>User Agent: <b>${navigator.userAgent}</b></li>
@@ -420,15 +419,42 @@
             ${isBrowser.any()}</b></li>
         </ul>`;
     
-        // Generar contenido restringido para navegadores
-        if(isBrowser.chrome()) detectionDevices.innerHTML += "<p><mark>Este contenido sólo es visible en Chrome</mark></p>";
-        if(isBrowser.firefox()) detectionDevices.innerHTML += "<p><mark>Este contenido sólo es visible en Firefox</mark></p>";
-        if(isBrowser.edge()) detectionDevices.innerHTML += "<p><mark>Este contenido sólo es visible en Edge</mark></p>";
+    // Generar contenido restringido para navegadores
+    if(isBrowser.chrome()) detectionDevices.innerHTML += "<p><mark>Este contenido sólo es visible en Chrome</mark></p>";
+    if(isBrowser.firefox()) detectionDevices.innerHTML += "<p><mark>Este contenido sólo es visible en Firefox</mark></p>";
+    if(isBrowser.edge()) detectionDevices.innerHTML += "<p><mark>Este contenido sólo es visible en Edge</mark></p>";
 
-        // Generar contenido restringido para SO
-        if(isDesktop.linux()) detectionDevices.innerHTML += "<p><mark>Descarga el software para Linux</mark></p>";
-        if(isDesktop.mac()) detectionDevices.innerHTML += "<p><mark>Descarga el software para Mac</mark></p>";
-        if(isDesktop.windows()) detectionDevices.innerHTML += "<p><mark>Descarga el software para Windows</mark></p>";
+    // Generar contenido restringido para SO
+    if(isDesktop.linux()) detectionDevices.innerHTML += "<p><mark>Descarga el software para Linux</mark></p>";
+    if(isDesktop.mac()) detectionDevices.innerHTML += "<p><mark>Descarga el software para Mac</mark></p>";
+    if(isDesktop.windows()) detectionDevices.innerHTML += "<p><mark>Descarga el software para Windows</mark></p>";
 
-        // Redifigir a página web mobile
-        if(isMobile.android()) window.location.href = "https://jonmircha.com";
+    // Redifigir a página web mobile
+    if(isMobile.android()) window.location.href = "https://jonmircha.com";
+
+// Detection Connection
+
+    // variables
+    const isOnLine = () => {
+
+        console.log("Hola");
+
+        const detectionConnectionDiv = document.createElement("div");
+
+        if(Navigator.onLine){
+            detectionConnectionDiv.textContent = "Conexión restablecida";
+            detectionConnectionDiv.classList.add("c-detection-connection__online");
+            detectionConnectionDiv.classList.remove("c-detection-connection__offline");
+        }else{
+            detectionConnectionDiv.textContent = "Conexión detenida";
+            detectionConnectionDiv.classList.add("c-detection-connection__offline");
+            detectionConnectionDiv.classList.remove("c-detection-connection__online");
+        }
+        document.body.insertAdjacentElement("afterbegin", detectionConnectionDiv);
+        setTimeout(() => document.body.removeChild(detectionConnectionDiv), 2000);
+
+    }
+
+    // Eventos
+    window.addEventListener("online", () => { isOnLine()});
+    window.addEventListener("offline", () => isOnLine());

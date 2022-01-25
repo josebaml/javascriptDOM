@@ -1250,6 +1250,42 @@ h1, h2, h3, h4, h5, h6 {
 /* END COMPONENT - C DETECTION DEVICES */
 /* ========================================================================================= */
 /* ========================================================================================= */
+/* COMPONENT - C DETECTION CONNECTION */
+/* ========================================================================================= */
+.c-detection-connection {
+  border-top: 1px solid #E8E8E8;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .c-detection-connection__title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-bottom: 1em;
+    text-align: center;
+    padding-top: 5em; }
+    @media (min-width: 42em) {
+      .c-detection-connection__title {
+        padding-top: 0; } }
+  .c-detection-connection__online, .c-detection-connection__offline {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #1b5e20;
+    color: #fff; }
+  .c-detection-connection__offline {
+    background-color: #b71c1c; }
+
+/* ========================================================================================= */
+/* END COMPONENT - C DETECTION CONNECTION */
+/* ========================================================================================= */
+/* ========================================================================================= */
 /* END COMPONENTS */
 /* ========================================================================================= */
 /* ========================================================================================= */
