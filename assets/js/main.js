@@ -481,3 +481,37 @@
             console.log(`Se ha detectado el siguiente error ${error}`)
         })
     }
+
+// Detection Geolocation
+
+    // variables
+    const geolocation = document.querySelector(".js-detection-geolocation__view");
+
+    const geolocationOptions = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
+
+    const geolocationSuccess = (position) => {
+        let coords = position.coords;
+        console.log(position);
+
+        geolocation.innerHTML = `
+                                <p>Tu posición actual es:</p>
+                                <ul>
+                                    <li>Latitud: ${coords.latitude}</li>
+                                    <li>Longitud: ${coords.longitude}</li>
+                                    <li>Precisión: ${coords.accuracy}</li>
+                                </ul>
+                                <a href="https://www.google.es/maps/@${coords.latitude},${coords.longitude},18z" 
+                                target="_blank" rel="noopener">Ver en Google Maps</a>
+                                `;      
+    };
+
+    const geolocationError = (error) => {
+        geolocation.innerHTML = `<p><mark>Error ${error.code}: ${error.message}</mark></p>`;
+        console.log(`Error ${error.code}: ${error.message}`);
+    };
+
+    navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError, geolocationOptions);
