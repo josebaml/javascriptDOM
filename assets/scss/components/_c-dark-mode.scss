@@ -17,9 +17,19 @@
     bottom: 2vh;
     z-index: 1;
     font-size: 2.5rem;
+    border: .5px solid $black;
+
+    @include respond-to('small') {
+
+        border: none;
+    }
     
     &:hover{
         background-color: $black;
+        border: 1px solid $white;
+        @include respond-to('small') {
+            border: none;
+        }
     }
 
     &__mode{

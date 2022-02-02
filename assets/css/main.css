@@ -768,7 +768,11 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   right: 2vw;
   bottom: 2vh;
-  z-index: 1; }
+  z-index: 1;
+  border: 0.5px solid #222; }
+  @media (min-width: 42em) {
+    .c-hamburguer {
+      border: none; } }
   .c-hamburguer__wrapper {
     display: flex;
     align-items: center;
@@ -1130,9 +1134,15 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #f7df1e;
   cursor: pointer;
   position: fixed;
-  right: 8vw;
-  bottom: 2vh;
-  z-index: 1; }
+  right: 2vw;
+  bottom: calc(5rem + 3vh);
+  z-index: 1;
+  border: 0.5px solid #222; }
+  @media (min-width: 42em) {
+    .c-scroll-buttom {
+      right: calc(5rem + 3vw);
+      bottom: 2vh;
+      border: none; } }
   .c-scroll-buttom__wrapper {
     display: flex;
     align-items: center;
@@ -1141,6 +1151,11 @@ h1, h2, h3, h4, h5, h6 {
     color: #222; }
   .c-scroll-buttom:hover {
     background-color: #222;
+    border: 0.5px solid #F1F1F1; }
+    @media (min-width: 42em) {
+      .c-scroll-buttom:hover {
+        border: none; } }
+  .c-scroll-buttom:hover .c-scroll-buttom__wrapper {
     color: #f7df1e; }
   .c-scroll-buttom__hidden {
     visibility: hidden;
@@ -1168,9 +1183,17 @@ h1, h2, h3, h4, h5, h6 {
   left: 2vw;
   bottom: 2vh;
   z-index: 1;
-  font-size: 2.5rem; }
+  font-size: 2.5rem;
+  border: 0.5px solid #222; }
+  @media (min-width: 42em) {
+    .c-dark-theme {
+      border: none; } }
   .c-dark-theme:hover {
-    background-color: #222; }
+    background-color: #222;
+    border: 1px solid #F1F1F1; }
+    @media (min-width: 42em) {
+      .c-dark-theme:hover {
+        border: none; } }
   .c-dark-theme__mode {
     background-color: #222;
     color: #f7df1e; }

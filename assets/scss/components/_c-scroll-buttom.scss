@@ -13,9 +13,16 @@
     background-color: $yellow;
     cursor: pointer;
     position: fixed;
-    right: 8vw;
-    bottom: 2vh;
+    right: 2vw;
+    bottom: calc(5rem + 3vh);
     z-index: 1;
+    border: .5px solid $black;
+
+    @include respond-to('small') {
+        right: calc(5rem + 3vw);
+        bottom: 2vh;
+        border: none;
+    }
 
     &__wrapper{
         display: flex;
@@ -27,6 +34,12 @@
 
     &:hover{
         background-color: $black;
+        border: .5px solid $white;
+        @include respond-to('small') {
+            border: none;
+        }
+    }
+    &:hover &__wrapper{
         color: $yellow;
     }
 

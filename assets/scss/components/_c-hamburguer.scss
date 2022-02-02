@@ -16,6 +16,11 @@
     right: 2vw;
     bottom: 2vh;
     z-index: 1;
+    border: .5px solid $black;
+
+    @include respond-to('small') {
+        border: none;
+    }
 
     &__wrapper{
         display: flex;
