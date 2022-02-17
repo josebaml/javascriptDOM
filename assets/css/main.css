@@ -1038,20 +1038,30 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid #E8E8E8;
   height: 100vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
+  position: relative; }
+  @media (min-width: 42em) {
+    .c-key-event {
+      height: 100vh; } }
   .c-key-event__title {
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: bold;
-    padding-bottom: 1em;
+    padding: 1.5rem 0 2rem 0;
     text-align: center; }
+    @media (min-width: 42em) {
+      .c-key-event__title {
+        padding-bottom: 3rem; } }
+    @media (min-width: 56.25em) {
+      .c-key-event__title {
+        padding-top: 3rem; } }
   .c-key-event__stage {
     width: 80%;
     display: flex;
     min-height: 50vh;
-    background-color: rgba(34, 34, 34, 0.85); }
+    background-color: rgba(34, 34, 34, 0.85);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
     @media (min-width: 42em) {
       .c-key-event__stage {
         width: 70%; } }
@@ -1076,31 +1086,52 @@ h1, h2, h3, h4, h5, h6 {
 .c-countdown {
   border-top: 1px solid #E8E8E8;
   height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
+  width: 100%; }
+  @media (min-width: 42em) {
+    .c-countdown {
+      height: 100vh; } }
   .c-countdown__title {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     font-weight: bold;
-    padding-bottom: 1em;
-    text-align: center;
-    padding-top: 5em; }
+    padding: 1.5rem 0 2rem 0;
+    text-align: center; }
     @media (min-width: 42em) {
       .c-countdown__title {
-        padding-top: 0; } }
+        padding-bottom: 3rem; } }
+    @media (min-width: 56.25em) {
+      .c-countdown__title {
+        padding-top: 3rem; } }
   .c-countdown__formulario {
-    padding: 3rem; }
+    max-width: 18.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto; }
+    @media (min-width: 42em) {
+      .c-countdown__formulario {
+        width: 100%;
+        max-width: 730px; } }
   .c-countdown__date, .c-countdown__time {
-    padding: 2rem 0;
+    width: 100%;
+    max-width: 18.75rem;
+    padding: 1rem 0;
     display: inline-block;
     font-size: 1.5rem;
     display: flex;
     flex-direction: column; }
+    @media (min-width: 42em) {
+      .c-countdown__date, .c-countdown__time {
+        padding: 2rem 0; } }
+  .c-countdown__time {
+    padding-bottom: 4rem; }
+    @media (min-width: 42em) {
+      .c-countdown__time {
+        padding-bottom: 6rem; } }
   .c-countdown__date-text, .c-countdown__time-text {
     padding-bottom: 1rem; }
   .c-countdown__date-input, .c-countdown__time-input {
+    width: 100%;
     padding: 1rem 2rem;
     text-align: center; }
   .c-countdown__none {

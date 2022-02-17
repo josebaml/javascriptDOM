@@ -6,37 +6,61 @@
         border-top: 1px solid $grey;
         height: 100vh;
         width: 100%;
-        @include center-flex-children(true);
+        @include respond-to('small') {
+            height: 100vh;
+        }
 
         &__title{
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             font-weight: bold;
-            padding-bottom: 1em;
+            padding: 1.5rem 0 2rem 0;
             text-align: center;
-            padding-top: 5em;
 
             @include respond-to('small') {
-                padding-top: 0;
+                padding-bottom: 3rem;
+            }
+            @include respond-to('medium') {
+                padding-top: 3rem;
             }
         }
 
         &__formulario{
-            padding: 3rem;
+            max-width: 18.75rem;
+            @include center-flex-children(true);
+            margin: auto;
+            @include respond-to('small') {
+                width: 100%;
+                max-width: 730px;
+            }
         }
 
         &__date, &__time{
-            padding: 2rem 0;
+            width: 100%;
+            max-width: 18.75rem;
+            padding: 1rem 0;
             display: inline-block;
             font-size: 1.5rem;
             display: flex;
             flex-direction: column;
-        } 
+
+            @include respond-to('small') {
+                padding: 2rem 0;
+            }
+        }
+
+        &__time{
+            padding-bottom: 4rem;
+            @include respond-to('small') {
+                padding-bottom: 6rem;
+            }
+        }
 
         &__date-text, &__time-text{
             padding-bottom: 1rem;
         }
 
         &__date-input, &__time-input{
+            width: 100%;
             padding: 1rem 2rem;
             text-align: center;
         }
