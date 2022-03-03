@@ -1111,7 +1111,7 @@ h1, h2, h3, h4, h5, h6 {
     @media (min-width: 42em) {
       .c-countdown__formulario {
         width: 100%;
-        max-width: 730px; } }
+        max-width: 45.625rem; } }
   .c-countdown__date, .c-countdown__time {
     width: 100%;
     max-width: 18.75rem;
@@ -1119,7 +1119,12 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     font-size: 1.5rem;
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px; }
     @media (min-width: 42em) {
       .c-countdown__date, .c-countdown__time {
         padding: 2rem 0; } }
@@ -1238,20 +1243,24 @@ h1, h2, h3, h4, h5, h6 {
 .c-responsive-javascript {
   border-top: 1px solid #E8E8E8;
   height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
+  width: 100%; }
+  @media (min-width: 42em) {
+    .c-responsive-javascript {
+      height: 100vh; } }
   .c-responsive-javascript__title {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     font-weight: bold;
-    padding-bottom: 1em;
-    text-align: center;
-    padding-top: 5em; }
+    padding: 1.5rem 0 2rem 0;
+    text-align: center; }
     @media (min-width: 42em) {
       .c-responsive-javascript__title {
-        padding-top: 0; } }
+        padding-bottom: 3rem; } }
+    @media (min-width: 56.25em) {
+      .c-responsive-javascript__title {
+        padding-top: 3rem; } }
+  .c-responsive-javascript__center {
+    text-align: center;
+    padding-bottom: 1.5rem; }
 
 /* ========================================================================================= */
 /* END COMPONENT - C RESPONSIVE JAVASCRIPT */
@@ -1262,20 +1271,43 @@ h1, h2, h3, h4, h5, h6 {
 .c-responsive-tester {
   border-top: 1px solid #E8E8E8;
   height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
+  width: 100%; }
+  @media (min-width: 42em) {
+    .c-responsive-tester {
+      height: 100vh; } }
   .c-responsive-tester__title {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     font-weight: bold;
-    padding-bottom: 1em;
-    text-align: center;
-    padding-top: 5em; }
+    padding: 1.5rem 0 2rem 0;
+    text-align: center; }
     @media (min-width: 42em) {
       .c-responsive-tester__title {
-        padding-top: 0; } }
+        padding-bottom: 3rem; } }
+    @media (min-width: 56.25em) {
+      .c-responsive-tester__title {
+        padding-top: 3rem; } }
+  .c-responsive-tester__form {
+    max-width: 18.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto; }
+    @media (min-width: 42em) {
+      .c-responsive-tester__form {
+        width: 100%;
+        max-width: 45.625rem; } }
+  .c-responsive-tester__input {
+    width: 100%;
+    max-width: 18.75rem;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px; }
 
 /* ========================================================================================= */
 /* END COMPONENT - C RESPONSIVE TESTER */

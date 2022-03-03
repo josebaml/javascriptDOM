@@ -30,7 +30,7 @@
             margin: auto;
             @include respond-to('small') {
                 width: 100%;
-                max-width: 730px;
+                max-width: 45.625rem;
             }
         }
 
@@ -42,6 +42,11 @@
             font-size: 1.5rem;
             display: flex;
             flex-direction: column;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
 
             @include respond-to('small') {
                 padding: 2rem 0;

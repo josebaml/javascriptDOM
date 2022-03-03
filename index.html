@@ -36,6 +36,7 @@
         <a class="c-menu-dropdown__menu-item-link" href="#detection-connection">Detección de conexión</a>
         <a class="c-menu-dropdown__menu-item-link" href="#detection-webcam">Detección de Webcam</a>
         <a class="c-menu-dropdown__menu-item-link" href="#detection-geolocation">Detección de Geolocalización</a>
+        <a class="c-menu-dropdown__menu-item-link" href="#search-filter">Filtro de Búsqueda</a>
       </nav>
     </div>
   
@@ -106,24 +107,25 @@
       <!-- C SECTION -->
       <section class="c-responsive-javascript" id="responsive-javascript">
         <h2 class="c-responsive-javascript__title">Responsive with Javascript</h2>
-        <div class="js-responsive-javascript__youtube"></div>
-        <div class="js-responsive-javascript__gmaps"></div>
+        <div class="c-responsive-javascript__center js-responsive-javascript__youtube"></div>
+        <div class="c-responsive-javascript__center js-responsive-javascript__gmaps"></div>
       </section>
 
       <!-- C SECTION -->
       <section class="c-responsive-tester" id="responsive-tester">
         <h2 class="c-responsive-tester__title">Responsive Tester</h2>
-        <form class="c-responsive-tester__form js-responsive-tester__form">
-          <input type="url" name="direction" placeholder="URL" required>
-          <br/>
-          <input type="text" name="ancho" placeholder="Ancho" required>
-          <br/>
-          <input type="text" name="alto" placeholder="alto" required>
-          <br/>
-          <input type="submit" name="probar" value="Probar">
-          <input type="button" name="cerrar" value="Cerrar">
+          <form class="c-responsive-tester__form js-responsive-tester__form">
+            
+            <input type="url" name="direction" placeholder="URL" class="c-responsive-tester__input" required>
+            <br/>
+            <input type="text" name="ancho" placeholder="Ancho" class="c-responsive-tester__input" required>
+            <br/>
+            <input type="text" name="alto" placeholder="alto" class="c-responsive-tester__input" required>
+            <br/>
+            <input type="submit" name="probar" class="c-button" value="Probar">
+            <input type="button" name="cerrar" class="c-button" value="Cerrar">
 
-        </form>
+          </form>
       </section>
 
       <!-- C SECTION -->
@@ -148,6 +150,14 @@
       <section class="c-detection-geolocation" id="detection-geolocation">
         <h2 class="c-detection-geolocation__title">Detección de Geolocalización</h2>
         <div class="c-detection-geolocation__view js-detection-geolocation__view"></div>
+      </section>
+
+      <!-- C SECTION -->
+      <section class="c-search-filter" id="search-filter">
+        <h2 class="c-search-filter__title">Reloj y Alarma</h2>
+        <div class="c-search-filter__wrapper">
+            <input class="c-search-filter__screen js-search-filter-screen" value=""/>
+        </div>
       </section>
 
     </main>

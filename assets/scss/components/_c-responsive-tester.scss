@@ -6,19 +6,46 @@
     border-top: 1px solid $grey;
     height: 100vh;
     width: 100%;
-    @include center-flex-children(true);
+    @include respond-to('small') {
+        height: 100vh;
+    }
 
     &__title{
-        font-size: 1.8rem;
+        font-size: 1.75rem;
         font-weight: bold;
-        padding-bottom: 1em;
+        padding: 1.5rem 0 2rem 0;
         text-align: center;
-        padding-top: 5em;
 
         @include respond-to('small') {
-            padding-top: 0;
+            padding-bottom: 3rem;
+        }
+        @include respond-to('medium') {
+            padding-top: 3rem;
         }
     }
+
+    &__form{
+        max-width: 18.75rem;
+        @include center-flex-children(true);
+        margin: auto;
+        @include respond-to('small') {
+            width: 100%;
+            max-width: 45.625rem;
+        }
+    }
+
+    &__input{
+        width: 100%;
+        max-width: 18.75rem;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        border-radius: 5px;
+        text-align: center;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+}
 }
     
 /* ========================================================================================= */
