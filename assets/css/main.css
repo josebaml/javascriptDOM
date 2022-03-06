@@ -1497,6 +1497,49 @@ h1, h2, h3, h4, h5, h6 {
 /* END COMPONENT - C SEARCH_FILTER */
 /* ========================================================================================= */
 /* ========================================================================================= */
+/* COMPONENT - C DIGITAL GIVEAWAY */
+/* ========================================================================================= */
+.c-digital-giveaway {
+  border-top: 1px solid #E8E8E8;
+  width: 100%;
+  margin-top: 4.8rem;
+  margin-bottom: 1rem; }
+  @media (min-width: 42em) {
+    .c-digital-giveaway {
+      height: 100vh; } }
+  .c-digital-giveaway__title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    padding: 1.5rem 0 2rem 0;
+    text-align: center; }
+    @media (min-width: 42em) {
+      .c-digital-giveaway__title {
+        padding-bottom: 3rem; } }
+    @media (min-width: 56.25em) {
+      .c-digital-giveaway__title {
+        padding-top: 3rem; } }
+  .c-digital-giveaway__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto; }
+    @media (min-width: 42em) {
+      .c-digital-giveaway__wrapper {
+        width: 100%;
+        max-width: 730px; } }
+  .c-digital-giveaway__players {
+    margin: 2rem; }
+  .c-digital-giveaway__player {
+    margin: .5rem; }
+
+.c-button--click {
+  cursor: pointer; }
+
+/* ========================================================================================= */
+/* END COMPONENT - C DIGITAL GIVEAWAY */
+/* ========================================================================================= */
+/* ========================================================================================= */
 /* END COMPONENTS */
 /* ========================================================================================= */
 /* ========================================================================================= */

@@ -532,3 +532,27 @@
         );
         
     });
+
+// Sorteo Digital
+
+    // Variables
+    const giveaway = document.querySelector(".js-digital-giveaway-button");
+
+    // Eventos
+    giveaway.addEventListener("click", (e) => {
+
+        let resultGiveawway = getWinner(".c-digital-giveaway__player");
+        alert(resultGiveawway);
+        console.log(resultGiveawway);
+
+    });
+
+
+    // Funciones
+    const getWinner = (selector) => {
+        const players = document.querySelectorAll(selector);
+        const random = Math.floor(Math.random() * players.length);
+        const winner = players[random];
+
+        return `El ganador es ${winner.textContent}`;
+    }

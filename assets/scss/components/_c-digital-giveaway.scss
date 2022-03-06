@@ -1,0 +1,53 @@
+/* ========================================================================================= */
+/* COMPONENT - C DIGITAL GIVEAWAY */
+/* ========================================================================================= */
+
+    .c-digital-giveaway{
+        border-top: 1px solid $grey;
+        width: 100%;
+        margin-top: 4.8rem;
+        margin-bottom: 1rem;
+        
+        @include respond-to('small') {
+            height: 100vh;
+        }
+        
+        &__title{
+            font-size: 1.75rem;
+            font-weight: bold;
+            padding: 1.5rem 0 2rem 0;
+            text-align: center;
+            
+            @include respond-to('small') {
+                padding-bottom: 3rem;
+            }
+            @include respond-to('medium') {
+                padding-top: 3rem;
+            }
+            
+        }
+
+        &__wrapper{
+            @include center-flex-children(true);
+            margin: auto;
+            @include respond-to('small') {
+                width: 100%;
+                max-width: 730px;
+            }
+        }
+
+        &__players{
+            margin: 2rem;
+        }
+
+        &__player{
+            margin: .5rem;
+        }
+    }
+
+    .c-button--click{
+        cursor: pointer; 
+    }
+/* ========================================================================================= */
+/* END COMPONENT - C DIGITAL GIVEAWAY */
+/* ========================================================================================= */
