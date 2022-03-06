@@ -515,3 +515,20 @@
     };
 
     navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError, geolocationOptions);
+
+
+// Filtros búsqueda
+
+    // variables
+    const searchInput = document.querySelector(".js-search-filter-card");
+
+    // Eventos
+    searchInput.addEventListener("keyup", (e) => {
+
+        document.querySelectorAll(".c-search-filter__card").forEach(el => 
+            el.textContent.toLocaleLowerCase().includes(e.target.value)
+                ? el.classList.remove("c-search-filter__filter")
+                : el.classList.add("c-search-filter__filter")
+        );
+        
+    });

@@ -1421,6 +1421,82 @@ h1, h2, h3, h4, h5, h6 {
 /* END COMPONENT - C DETECTION GEOLOCATION */
 /* ========================================================================================= */
 /* ========================================================================================= */
+/* COMPONENT - C SEARCH_FILTER */
+/* ========================================================================================= */
+.c-search-filter {
+  border-top: 1px solid #E8E8E8;
+  width: 100%;
+  margin-top: 4.8rem;
+  margin-bottom: 1rem; }
+  @media (min-width: 42em) {
+    .c-search-filter {
+      height: 100vh; } }
+  .c-search-filter__title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    padding: 1.5rem 0 2rem 0;
+    text-align: center; }
+    @media (min-width: 42em) {
+      .c-search-filter__title {
+        padding-bottom: 3rem; } }
+    @media (min-width: 56.25em) {
+      .c-search-filter__title {
+        padding-top: 3rem; } }
+  .c-search-filter__input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto; }
+    @media (min-width: 42em) {
+      .c-search-filter__input {
+        width: 100%;
+        max-width: 730px; } }
+  .c-search-filter__screen {
+    max-width: 18.75rem;
+    padding: 1em;
+    line-height: 1.5;
+    font-size: 24px;
+    text-align: center;
+    color: #222;
+    border: 1px solid #222;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out; }
+    @media (min-width: 42em) {
+      .c-search-filter__screen {
+        width: 50%; } }
+  .c-search-filter__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 2rem 0; }
+  .c-search-filter__card {
+    background-color: rgba(34, 34, 34, 0.85);
+    color: #f7df1e;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    margin: .5rem; }
+  .c-search-filter__card img {
+    width: 100%;
+    height: auto; }
+  .c-search-filter__text {
+    padding: 1rem;
+    text-align: center; }
+  .c-search-filter__filter {
+    visibility: hidden;
+    opacity: 0;
+    order: 1; }
+
+/* ========================================================================================= */
+/* END COMPONENT - C SEARCH_FILTER */
+/* ========================================================================================= */
+/* ========================================================================================= */
 /* END COMPONENTS */
 /* ========================================================================================= */
 /* ========================================================================================= */
